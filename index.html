@@ -510,8 +510,6 @@ const logCount   = document.getElementById('logCount');
 const logStatus  = document.getElementById('logStatus');
 const logContainer = document.getElementById('logContainer');
 
-const CIRCUMFERENCE = 2 * Math.PI * 72; // ~452.4
-
 // ── Helpers ──
 function pad(n) { return String(n).padStart(2, '0'); }
 
@@ -542,14 +540,8 @@ function formatTime(d) {
   return d.toTimeString().slice(0,5);
 }
 
-function setRingProgress(ratio) {
-  const offset = CIRCUMFERENCE * (1 - Math.max(0, Math.min(1, ratio)));
-  ring.style.strokeDashoffset = offset;
-}
-
 function setColorState(state) {
   face.className = 'timer-face ' + state;
-  ring.className = 'progress-ring-fill ' + state;
 }
 
 function updateDisplay() {
